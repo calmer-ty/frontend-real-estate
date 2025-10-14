@@ -20,12 +20,12 @@ export const Primary = styled.section`
     flex-direction: column;
     justify-content: space-between;
     height: 24rem;
-    gap: 1rem;
-    margin: 0 8rem;
+    gap: 2rem;
+    margin: 0 4rem;
     .row-item {
       display: flex;
       justify-content: space-between;
-      gap: 1rem;
+      gap: 2rem;
       height: 100%;
       a {
         width: 100%;

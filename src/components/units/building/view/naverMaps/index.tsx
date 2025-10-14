@@ -139,8 +139,6 @@ export default function NaverMaps({
   setRegionName,
   allGeocodeDataLoading,
 }: INaverMapsProps): JSX.Element {
-  // 맵 모드
-
   const totalAsset = asset !== undefined ? Number(asset.cash) + Number(asset.investmentAssets) : 0;
 
   const markersRef = useRef<any[]>([]);
@@ -164,17 +162,6 @@ export default function NaverMaps({
           processedPositions.add(positionKey); // 이미 처리한 위치는 Set에 추가
         }
       });
-      // 기존의 api에서 가져온 데이터, 새로 등록한 데이터
-      // registeredGeocodeDatas.newDatas?.forEach((newData) => {
-      //   const position = new window.naver.maps.LatLng(newData.geocode?.latitude, newData.geocode?.longitude);
-      //   const positionKey = `${newData.geocode?.latitude},${newData.geocode?.longitude}`;
-
-      //   if (mapBounds.hasLatLng(position) === true && !processedPositions.has(positionKey)) {
-      //     const marker = createMarkerUser({ newData: registeredGeocodeDatas.matchingData, setSelectedMarkerData });
-      //     markersRef.current.push(marker);
-      //     processedPositions.add(positionKey); // 이미 처리한 위치는 Set에 추가
-      //   }
-      // });
 
       if (markerClusteringRef.current != null) {
         markerClusteringRef.current.setMap(null);
@@ -188,7 +175,6 @@ export default function NaverMaps({
     },
     [allGeocodeData, matchingData, setVisibleMarkerData, setSelectedMarkerData, mapMode, totalAsset]
   );
-
   const isClusterScriptLoadedRef = useRef(false);
   const loadClusterScript = useCallback(
     (map: any) => {

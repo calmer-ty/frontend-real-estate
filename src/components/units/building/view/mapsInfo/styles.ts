@@ -31,7 +31,7 @@ export const ListItem = styled.ul`
 
     h3 {
       font-weight: bold;
-      font-size: 1.25rem;
+      font-size: 1rem;
     }
 
     &:hover {

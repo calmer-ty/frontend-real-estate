@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 
-import VisibleBuilding from "./visibleBuilding";
-import SelectedBuilding from "./selectedBuilding";
+import VisibleBuilding from "./VisibleBuilding";
+import SelectedBuilding from "./SelectedBuilding";
 import NoDataMessage from "@/src/components/commons/noDataMessage";
 
 import * as S from "./styles";

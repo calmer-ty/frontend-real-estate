@@ -1,30 +1,27 @@
 "use client";
 
-import { useEffect, useState } from "react";
-import { useFirestore } from "@/src/commons/hooks/firebase/useFirestore";
+import { useEffect } from "react";
 
 import HomePrimary from "./HomePrimary";
-import HomeSecondary from "./HomeSecondary";
+// import HomeSecondary from "./HomeSecondary";
 
 import { useMediaQuery } from "@mui/material";
 import { useRouter } from "next/navigation";
 
-import type { IFirestore } from "@/src/commons/types";
-
 export default function Home(): JSX.Element {
-  const [firestoreData, setFirestoreData] = useState<IFirestore[]>([]);
+  // const [firestoreData, setFirestoreData] = useState<IFirestore[]>([]);
 
-  const { readFirestores } = useFirestore();
+  // const { readFirestores } = useFirestore();
 
   // firestoreDatas;
-  useEffect(() => {
-    const readBuildings = async (): Promise<void> => {
-      // 임시로 아파트만 랜덤 렌더링
-      const datas = await readFirestores("buildings");
-      setFirestoreData(datas);
-    };
-    void readBuildings();
-  }, [readFirestores]);
+  // useEffect(() => {
+  //   const readBuildings = async (): Promise<void> => {
+  //     // 임시로 아파트만 랜덤 렌더링
+  //     const datas = await readFirestores("buildings");
+  //     setFirestoreData(datas);
+  //   };
+  //   void readBuildings();
+  // }, [readFirestores]);
 
   // 모바일 해상도일 경우 주소 이동
   const router = useRouter();
@@ -39,7 +36,7 @@ export default function Home(): JSX.Element {
   return (
     <article className="flex flex-col gap-2 h-[calc(100vh_-_3.75rem)] bg-blue-50">
       <HomePrimary />
-      <HomeSecondary firestoreData={firestoreData} />
+      {/* <HomeSecondary firestoreData={firestoreData} /> */}
     </article>
   );
 }
