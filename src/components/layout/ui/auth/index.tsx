@@ -4,8 +4,8 @@ import { useAuth } from "@/src/commons/hooks/useAuth";
 import { auth, googleProvider } from "@/src/commons/libraries/firebase/firebaseApp";
 
 import BasicAlert from "@/src/components/commons/alert/basic";
-import LoginButton from "./loginButton";
-import UserMenu from "./userMenu";
+import LoginButton from "./LoginButton";
+import UserMenu from "./UserMenu";
 
 export default function AuthButton(): JSX.Element {
   const { user } = useAuth();

@@ -12,8 +12,8 @@ import BasicAlert from "@/src/components/commons/alert/basic";
 import UnderlineTitle from "@/src/components/commons/title/underline";
 import BasicUpload from "@/src/components/commons/upload/basic";
 import WriteRadio from "./ui/writeRadio";
-import BuildingInfo from "./buildingInfo";
 import InputUnit from "./ui/inputUnit";
+import BuildingInfo from "./BuildingInfo";
 
 import { BUILDING_TYPE, DEFAULT_STRING_VALUE } from "@/src/commons/constants";
 import * as S from "./styles";

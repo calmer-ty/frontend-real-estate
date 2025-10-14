@@ -42,7 +42,7 @@ const settings = {
   ],
 };
 
-export default function Secondary({ firestoreData }: ISecondaryProps): JSX.Element {
+export default function HomeSecondary({ firestoreData }: ISecondaryProps): JSX.Element {
   const randomFirestores = useMemo(() => {
     return firestoreData.sort(() => 0.5 - Math.random()).slice(0, 5);
   }, [firestoreData]);

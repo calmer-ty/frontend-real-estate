@@ -10,7 +10,7 @@ interface IMotionLinkProps {
   target?: string;
 }
 
-export default function Primary(): JSX.Element {
+export default function HomePrimary(): JSX.Element {
   return (
     <S.Primary>
       <div className="inner">

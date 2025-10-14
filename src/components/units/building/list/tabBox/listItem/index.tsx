@@ -1,8 +1,8 @@
 import { korToEng } from "@/src/commons/libraries/utils/convertCollection";
 
 import Link from "next/link";
-import ItemActions from "./itemActions";
-import ItemContents from "./itemContents";
+import ItemActions from "./ItemActions";
+import ItemContents from "./ItemContents";
 
 import * as S from "./styles";
 

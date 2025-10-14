@@ -1,5 +1,5 @@
 import { useCallback, useEffect, useState } from "react";
-import { getMapInitOptions, loadScript } from "@/src/commons/libraries/utils/maps/init";
+import { getMapInitOptions, loadScript } from "@/src/commons/libraries/utils/mapsInit";
 
 interface IUseMapsLoaderParams {
   onMapLoaded: (map: any) => void;
