@@ -29,13 +29,14 @@ const extractAddress = (addressElements: string[]): { jibunAddress: string; road
 };
 
 export const geocodeApi = async (address: string): Promise<IGeocode | undefined> => {
-  const apiUrl = `https://naveropenapi.apigw.ntruss.com/map-geocode/v2/geocode?query=${encodeURIComponent(address)}`;
+  const apiUrl = `https://maps.apigw.ntruss.com/map-geocode/v2/geocode?query=${encodeURIComponent(address)}`;
   const response = await axios.get<IGeocodeAPI | undefined>(apiUrl, {
     headers: {
       "X-NCP-APIGW-API-KEY-ID": process.env.NEXT_PUBLIC_NCP_CLIENT_ID,
       "X-NCP-APIGW-API-KEY": process.env.NCP_CLIENT_SECRET,
     },
   });
+  console.log("response: ", response);
   const addresses = response.data?.addresses ?? [];
   try {
     if (addresses.length > 0) {

@@ -75,6 +75,7 @@ export default function BuildingView({ params }: IBuildingParamsPromiseProps): J
 
   // 선택한 위치 API 호출
   const [geocode, setGeocode] = useState<IGeocode | undefined>(undefined);
+
   const fetchGeocode = useCallback(
     async (): Promise<void> => {
       try {
