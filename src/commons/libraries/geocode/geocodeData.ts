@@ -23,7 +23,6 @@ const getGeocodeData = async (address: string): Promise<IGeocode | undefined> =>
   const cachedData = getCachedGeocodeData(cacheKey);
 
   if (cachedData !== undefined) {
-    // console.log(`주소 ${itemDatas.address}에 대한 지오코딩 데이터 캐시 히트`);
     return cachedData;
   }
 
@@ -56,7 +55,6 @@ export const getAllGeocodeData = async ({ regionCode, regionName, buildingType }
     selectedData = buildingData; // 캐시가 있으면 캐시 데이터 사용
   } else {
     selectedData = []; // 데이터도 없고 캐시도 없으면 빈 배열 반환
-    // console.log("getAllGeocodeData / buildingData가 없습니다. ");
   }
 
   const geocodeData = await Promise.all(

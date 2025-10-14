@@ -58,7 +58,6 @@ export const useFirestore = (): IUseFirestoreReturn => {
       await updateDoc(docRef, {
         _id: docRef.id,
       });
-      // console.log(`Building ${data._id} archived.`);
     } catch (error) {
       if (error instanceof Error) console.error(error.message);
     }

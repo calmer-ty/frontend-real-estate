@@ -147,7 +147,6 @@ export default function NaverMaps({
   const markerClusteringRef = useRef<any>();
   const updateMarkers = useCallback(
     async (map: any) => {
-      // console.log("Current geocodeData:", geocodeData); // 여기서 geocodeData 상태를 확인
       const mapBounds = map.getBounds();
       const processedPositions = new Set<string>();
 
@@ -194,8 +193,6 @@ export default function NaverMaps({
   const loadClusterScript = useCallback(
     (map: any) => {
       if (isClusterScriptLoadedRef.current) {
-        // console.log("클러스터 스크립트가 이미 로드되었습니다.");
-
         // 기존 리스너 제거 후 등록
         window.naver.maps.Event.clearListeners(map, "idle");
         window.naver.maps.Event.addListener(map, "idle", () => {
@@ -208,7 +205,6 @@ export default function NaverMaps({
       const MARKER_CLUSTERING_SCRIPT_URL = "/libraries/markerClustering.js";
       loadScript(MARKER_CLUSTERING_SCRIPT_URL, () => {
         try {
-          // console.log("클러스터를 실행합니다.");
           isClusterScriptLoadedRef.current = true; // 스크립트가 로드되었음을 기록
 
           window.naver.maps.Event.addListener(map, "idle", () => {

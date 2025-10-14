@@ -36,8 +36,6 @@ export default function BuildingDetail({ params }: IBuildingListParamsProps): JS
         const buildings = await readFirestore("buildings", listId);
         if (buildings !== undefined) {
           setBuildingData(buildings);
-        } else {
-          console.log("No such document!");
         }
       } catch (error) {
         console.error("Error fetching document: ", error);

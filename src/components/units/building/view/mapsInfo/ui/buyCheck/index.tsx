@@ -28,7 +28,6 @@ export default function BuyCheck({ selectedData, asset }: IBuyCheckProps): JSX.E
     const realEstateGrowthRate = 5; // 고정 5% 부동산 성장률
 
     let totalCash = cash; // 저축을 통해 증가하는 현금 자산
-    console.log("totalCash: ", totalCash);
     let totalinvestmentAssets = investmentAssets; // 복리 적용되는 금융 자산
     let goalAmount = dealAmount; // 초기 부동산 가치, 목표 금액과 같다고 가정
 
@@ -45,7 +44,6 @@ export default function BuyCheck({ selectedData, asset }: IBuyCheckProps): JSX.E
 
       // 부동산 가치 복리 계산 (연 단위)
       goalAmount = goalAmount * (1 + realEstateGrowthRate / 100);
-      // console.log(`연도: ${years}, 현금: ${totalCash}, 금융 자산: ${totalinvestmentAssets}, 총 자산: ${totalCash + totalinvestmentAssets} 목표 금액: ${goalAmount}`);
     }
     return `약 ${years}년`;
   };
@@ -55,7 +53,6 @@ export default function BuyCheck({ selectedData, asset }: IBuyCheckProps): JSX.E
     const result = calculateTimeToGoal(dealAmount, cash, monthlySavings, monthlyInvestment, investmentAssets, investmentAssetsGrowthRate);
     setYearsToGoal(result);
   }, [dealAmount, cash, monthlySavings, monthlyInvestment, investmentAssets, investmentAssetsGrowthRate]);
-  console.log("yearsToGoal: ", yearsToGoal);
 
   return (
     <S.Container>

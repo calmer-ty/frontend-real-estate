@@ -112,11 +112,7 @@ export const getLatestData = (items: IBuildingItem[]): IBuildingItem[] => {
         (item.dealYear === existingItem.dealYear && item.dealMonth === existingItem.dealMonth && item.dealDay > existingItem.dealDay);
 
       if (isNewer) {
-        // console.log(`Filtering out older item:`, `${existingItem.umdNm}_${existingItem.jibun}_${existingItem.aptNm}__${existingItem.dealYear}${existingItem.dealMonth}${existingItem.dealDay}`); // 필터링된 이전 데이터
-        // console.log(`Keeping newer item:`, `${item.umdNm}_${item.jibun}_${item.aptNm}__${item.dealYear}${item.dealMonth}${item.dealDay}`); // 필터링되는 최신 데이터
         grouped.set(key, item);
-      } else {
-        // console.log(`Skipping item:`, `${item.umdNm}_${item.jibun}_${item.aptNm}__${item.dealYear}${item.dealMonth}${item.dealDay}`); // 업데이트되지 않은 데이터 (필터링되지 않음)
       }
     }
   });

@@ -8,7 +8,7 @@ import { engToKor } from "@/src/commons/libraries/utils/convertCollection";
 import LoadingSpinner from "@/src/components/commons/loadingSpinner";
 import NaverMaps from "./naverMaps";
 import MapsInfo from "./mapsInfo";
-import MapSelector from "./mapSelector";
+import MapSelector from "./MapSelector";
 
 import * as S from "./styles";
 import { DEFAULT_STRING_VALUE } from "@/src/commons/constants";
@@ -38,17 +38,6 @@ export default function BuildingView({ params }: IBuildingParamsPromiseProps): J
     };
     void readBuilding();
   }, [readFirestores]);
-
-  // API 패치 훅
-  // const fetchRegionData = useCallback(async (): Promise<void> => {
-  //   try {
-  //     const response = await axios.get("/api/fetchRegion");
-  //     const data = response.data;
-  //     return data;
-  //   } catch (err) {
-  //     console.error("Error fetching data:", err);
-  //   }
-  // }, []);
 
   // 건물 데이터 API 호출
   const [buildingData, setBuildingData] = useState<IBuildingItem[]>([]);
@@ -84,7 +73,6 @@ export default function BuildingView({ params }: IBuildingParamsPromiseProps): J
         });
         if (response.status === 200) {
           setGeocode(response.data);
-          // console.log("Fetched geocode data:", response.data);
         } else {
           throw new Error("Failed to fetch geocode data");
         }
@@ -109,7 +97,6 @@ export default function BuildingView({ params }: IBuildingParamsPromiseProps): J
         });
         if (response.status === 200) {
           setAllGeocodeData(response.data);
-          // console.log("Fetched geocode data:", response.data);
         } else {
           throw new Error("Failed to fetch geocode data");
         }
@@ -121,8 +108,6 @@ export default function BuildingView({ params }: IBuildingParamsPromiseProps): J
     },
     [regionCode, regionName, buildingType] // buildingType이 변경될 때만 함수가 재정의됨
   );
-
-  // 맵 마커 로직
 
   // params를 비동기적으로 처리하려면 await로 기다려야 함
   useEffect(() => {

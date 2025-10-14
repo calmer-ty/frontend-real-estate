@@ -14,7 +14,6 @@ const fetchRegionData = async (city: string): Promise<IRegionItemFiltered[]> => 
   const cachedData = getCachedRegionData(cacheKey);
 
   if (cachedData !== undefined) {
-    // console.log(`${city}에 대한 캐시가 존재합니다:`, cachedData);
     return cachedData;
   }
 

@@ -15,7 +15,6 @@ export const getBuildingData = async ({ regionCode, regionName, buildingType }: 
   try {
     const response = await buildingApi({ regionCode, regionName, buildingType });
     setBuildingCache(cacheKey, response);
-    // console.log("API 데이터 캐시 저장 결과: ", response);
 
     return response;
   } catch (error) {

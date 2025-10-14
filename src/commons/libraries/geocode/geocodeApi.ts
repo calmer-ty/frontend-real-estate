@@ -36,7 +36,7 @@ export const geocodeApi = async (address: string): Promise<IGeocode | undefined>
       "X-NCP-APIGW-API-KEY": process.env.NCP_CLIENT_SECRET,
     },
   });
-  console.log("response: ", response);
+
   const addresses = response.data?.addresses ?? [];
   try {
     if (addresses.length > 0) {
@@ -44,8 +44,6 @@ export const geocodeApi = async (address: string): Promise<IGeocode | undefined>
 
       // extractAddress 함수로 지번 주소와 도로명 주소를 가져옴
       const { jibunAddress, roadAddress } = addressElements !== undefined ? extractAddress(addressElements) : { jibunAddress: "", roadAddress: "" };
-      // console.log("jibunAddress: ", jibunAddress);
-      // console.log("roadAddress: ", roadAddress);
 
       return {
         latitude: parseFloat(y),
