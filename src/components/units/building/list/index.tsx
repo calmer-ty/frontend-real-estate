@@ -4,7 +4,7 @@ import { useCallback, useEffect, useState } from "react";
 import { useAuth } from "@/src/commons/hooks/useAuth";
 import { useFirestore } from "@/src/commons/hooks/firebase/useFirestore";
 
-import DeleteModal from "./deleteModal";
+import DeleteModal from "./DeleteModal";
 import TabBox from "./tabBox";
 
 import * as S from "./styles";
