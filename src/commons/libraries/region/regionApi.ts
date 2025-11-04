@@ -1,5 +1,4 @@
 import axios from "axios";
-import { handleError } from "@/src/commons/libraries/utils/handleError";
 
 import type { IRegion, IRegionItem, IRegionItemFiltered } from "@/src/commons/types"; // 지역 데이터 타입 정의를 가져옵니다
 
@@ -19,9 +18,10 @@ const fetchPageData = async (city: string, pageNo: number): Promise<IRegion | un
   try {
     const url = createApiUrl(city, pageNo);
     const response = await axios.get<IRegion | undefined>(url);
+
     return response.data;
   } catch (error) {
-    handleError(error, "fetchPageData");
+    console.error("[fetchPageData] error:", error);
     return undefined;
   }
 };
@@ -72,7 +72,6 @@ const getUniqueRegionCodes = async (city: string, totalPages: number): Promise<M
 export const regionApi = async (city: string): Promise<IRegionItemFiltered[]> => {
   try {
     const initialUrl = createApiUrl(city, 1);
-    // const initialUrl = createApiUrl(`서울특별시`, 1);
     const initialResponse = await axios.get<IRegion | undefined>(initialUrl);
 
     const totalCount = initialResponse.data?.StanReginCd?.[0]?.head?.[0].totalCount ?? 0; // row 데이터 추출
@@ -83,7 +82,6 @@ export const regionApi = async (city: string): Promise<IRegionItemFiltered[]> =>
 
     const totalPages = Math.ceil(totalCount / NUM_OF_ROWS);
     const regionCodeMap = await getUniqueRegionCodes(city, totalPages);
-    // const regionCodes = await getUniqueRegionCodes(`서울특별시`, totalPages);
 
     // Map에서 regionCode와 locallowNm을 각각 배열로 추출
     const result = Array.from(regionCodeMap.values()).map((item) => ({
@@ -94,7 +92,7 @@ export const regionApi = async (city: string): Promise<IRegionItemFiltered[]> =>
 
     return result; // 각각 따로 배열로 반환
   } catch (error) {
-    handleError(error, "regionApi"); // 에러 처리
+    console.error("[regionApi] error:", error);
     return [];
   }
 };

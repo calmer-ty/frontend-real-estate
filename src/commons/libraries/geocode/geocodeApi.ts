@@ -1,5 +1,4 @@
 import axios from "axios";
-import { handleError } from "@/src/commons/libraries/utils/handleError";
 
 import type { IGeocodeAPI, IGeocode } from "@/src/commons/types";
 
@@ -55,7 +54,7 @@ export const geocodeApi = async (address: string): Promise<IGeocode | undefined>
       return undefined;
     }
   } catch (error) {
-    handleError(error, "geocodeApi"); // 에러 처리
+    console.error("[geocodeApi] error:", error);
     return undefined;
   }
 };

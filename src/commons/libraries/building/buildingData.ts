@@ -1,6 +1,5 @@
 import { buildingApi } from "./buildingApi";
 import { getCachedBuildingData, setBuildingCache } from "./buildingCache";
-import { handleError } from "@/src/commons/libraries/utils/handleError";
 
 import type { IBuildingDataParams, IBuildingItem } from "@/src/commons/types";
 
@@ -18,7 +17,7 @@ export const getBuildingData = async ({ regionCode, regionName, buildingType }: 
 
     return response;
   } catch (error) {
-    handleError(error, "getBuildingData");
+    console.error("[getBuildingData] error:", error);
     return []; // 에러가 발생하면 빈 배열 반환
   }
 };

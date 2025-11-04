@@ -1,7 +1,7 @@
 import axios from "axios";
-import { getCurrentDate } from "@/src/commons/libraries/utils/currentDate";
-import { handleError } from "@/src/commons/libraries/utils/handleError";
 import pLimit from "p-limit";
+
+import { getCurrentDate } from "@/src/commons/libraries/utils/currentDate";
 
 import type { IBuilding, IBuildingItem, IBuildingDataParams } from "@/src/commons/types";
 interface ICreateApiUrlParams {
@@ -127,6 +127,7 @@ export const buildingApi = async ({ regionCode, regionName, buildingType }: IBui
     const initialUrl = createApiUrl({ regionCode, buildingType, pageNo: 1 });
     const initialResponse = await axios.get<IBuilding | undefined>(initialUrl);
     const totalCount = initialResponse.data?.response?.body?.totalCount ?? 0;
+
     if (totalCount === 0) {
       console.warn("buildingApi - 총 데이터 개수가 없습니다.");
       return [];
@@ -154,7 +155,7 @@ export const buildingApi = async ({ regionCode, regionName, buildingType }: IBui
     const latestData = getLatestData(allItems.flat());
     return latestData;
   } catch (error) {
-    handleError(error, "officetelApi"); // 에러 처리
+    console.error("[buildingApi] error:", error);
     return [];
   }
 };

@@ -1,6 +1,5 @@
 import { regionApi } from "./regionApi";
 import { getCachedRegionData, setRegionCache } from "./regionCache";
-import { handleError } from "@/src/commons/libraries/utils/handleError";
 
 import { CITIES } from "@/src/commons/constants/regionData";
 import type { IRegionItemFiltered } from "@/src/commons/types";
@@ -23,7 +22,7 @@ const fetchRegionData = async (city: string): Promise<IRegionItemFiltered[]> => 
 
     return response;
   } catch (error) {
-    handleError(error, `fetchRegionData - ${city}`); // 에러 처리
+    console.error("[fetchRegionData] error:", error);
     return [];
   }
 };
@@ -43,7 +42,7 @@ export const getRegionData = async (): Promise<IRegionItemFiltered[]> => {
 
     return regionDataList.flat(); // 도시별 지역 코드 그룹화된 객체 반환
   } catch (error) {
-    handleError(error, "fetchRegionData"); // 에러 처리
+    console.error("[fetchRegionData] error:", error);
     return [];
   }
 };
