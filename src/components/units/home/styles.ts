@@ -1,32 +1,30 @@
 import styled from "@emotion/styled";
 import { colors, mediaQueries } from "@/src/commons/styles";
 
-import Slider from "react-slick";
-import "slick-carousel/slick/slick.css";
-import "slick-carousel/slick/slick-theme.css";
 import { css } from "@emotion/react";
 
 // 지도 선택 버튼
-export const Primary = styled.section`
+export const Primary = styled.article`
   overflow: hidden;
   display: flex;
   justify-content: center;
   align-items: center;
   position: relative;
-  flex: 1.2;
+  height: calc(100vh - 3.75rem);
+  background-color: #e4f5ffff;
 
   .inner {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    height: 24rem;
     gap: 2rem;
     margin: 0 4rem;
+
     .row-item {
       display: flex;
       justify-content: space-between;
       gap: 2rem;
-      height: 100%;
+      height: 10rem;
       a {
         width: 100%;
         height: 100%;
@@ -51,101 +49,11 @@ export const Primary = styled.section`
         &.link-5 {
           background-image: url("/images/icon_houseSale.png");
         }
-        &:hover {
-          background-color: ${colors.cover};
-        }
       }
-    }
-
-    ${mediaQueries.tablet(css`
-      margin: 0 2rem;
-    `)}
-  }
-`;
-
-// SliderStyle
-export const SliderStyle = styled(Slider)`
-  width: 100%;
-  height: 100%;
-  .slick-list {
-    height: 100%;
-    .slick-track {
-      height: 100%;
-    }
-    .slick-slide {
-      padding: 0 1rem;
-      div {
-        height: 100%;
-      }
-    }
-  }
-  .slick-dots {
-    bottom: -1.5rem;
-  }
-`;
-
-export const Secondary = styled.section`
-  display: flex;
-  flex-direction: column;
-  padding: 1rem 1rem 2rem;
-  gap: 1rem;
-  flex: 1;
-  background-color: white;
-
-  h3 {
-    padding: 0 1rem;
-    font-size: 1.25rem;
-    font-weight: bold;
-  }
-`;
-
-export const RecommendedLink = styled.div`
-  a {
-    display: flex;
-    flex-direction: column;
-    row-gap: 0.5rem;
-    position: relative;
-    transition: background-color 100ms ease-in-out;
-    height: 100%;
-
-    &:hover {
-      background-color: ${colors.hover};
-
-      figure::after {
-        background-color: ${colors.cover};
-      }
-    }
-
-    figure {
-      position: relative;
-      height: 100%;
-
-      /* 이미지 랩 */
-      &::after {
-        content: "";
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        transition: background-color 100ms ease-in-out;
-      }
-    }
-
-    /* figcaption */
-    figcaption {
-      display: flex;
-      flex-direction: column;
-      padding: 0 0.5rem 0.5rem;
-
-      strong {
-        margin-bottom: 0.25rem;
-      }
-      span {
-        overflow: hidden;
-        white-space: nowrap;
-        text-overflow: ellipsis;
-      }
+      ${mediaQueries.tablet(css`
+        height: initial;
+        flex-direction: column;
+      `)}
     }
   }
 `;

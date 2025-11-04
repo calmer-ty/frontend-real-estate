@@ -7,9 +7,7 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint",
-    "prepare": "husky",
-    "postinstall": "husky"
+    "lint": "next lint"
   },
   "dependencies": {
     "@emotion/react": "^11.11.4",
@@ -58,7 +56,6 @@
     "eslint-plugin-next": "^0.0.0",
     "eslint-plugin-promise": "^6.0.0",
     "eslint-plugin-react": "^7.34.3",
-    "husky": "8.0.1",
     "prettier": "2.8.8",
     "tailwindcss": "^4",
     "ts-node": "^10.9.2",
