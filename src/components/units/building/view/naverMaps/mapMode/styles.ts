@@ -4,6 +4,7 @@ import { css } from "@emotion/react";
 
 export const MapMode = styled.div`
   display: flex;
+  justify-self: end;
 
   .buttonWrap {
     display: flex;

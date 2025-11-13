@@ -1,8 +1,6 @@
 import styled from "@emotion/styled";
 
-export const Container = styled.div`
-  display: flex;
-  gap: 0.5rem;
+export const MapSelector = styled.div`
   outline: 0.125rem solid #1976d2;
   border-radius: 0.25rem;
   .MuiFormControl-root {

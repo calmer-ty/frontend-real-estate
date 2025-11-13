@@ -8,7 +8,6 @@ import { engToKor } from "@/src/commons/libraries/utils/convertCollection";
 import LoadingSpinner from "@/src/components/commons/loadingSpinner";
 import NaverMaps from "./naverMaps";
 import MapsInfo from "./mapsInfo";
-import MapSelector from "./MapSelector";
 
 import * as S from "./styles";
 import { DEFAULT_STRING_VALUE } from "@/src/commons/constants";
@@ -175,22 +174,19 @@ export default function BuildingView({ params }: IBuildingParamsPromiseProps): J
 
   return (
     <S.Container>
-      <MapSelector buildingType={buildingType} />
-
-      <S.MapsWrap>
-        <MapsInfo {...mapProps} selectedMarkerData={selectedMarkerData} visibleMarkerData={visibleMarkerData} buildingType={buildingType} />
-        <NaverMaps
-          {...mapProps}
-          geocode={geocode}
-          allGeocodeData={allGeocodeData}
-          allGeocodeDataLoading={allGeocodeDataLoading}
-          setVisibleMarkerData={setVisibleMarkerData}
-          setRegionName={setRegionName}
-          setRegionCode={setRegionCode}
-          setMapMode={setMapMode}
-          setAsset={setAsset}
-        />
-      </S.MapsWrap>
+      <MapsInfo {...mapProps} selectedMarkerData={selectedMarkerData} visibleMarkerData={visibleMarkerData} buildingType={buildingType} />
+      <NaverMaps
+        {...mapProps}
+        buildingType={buildingType}
+        geocode={geocode}
+        allGeocodeData={allGeocodeData}
+        allGeocodeDataLoading={allGeocodeDataLoading}
+        setVisibleMarkerData={setVisibleMarkerData}
+        setRegionName={setRegionName}
+        setRegionCode={setRegionCode}
+        setMapMode={setMapMode}
+        setAsset={setAsset}
+      />
     </S.Container>
   );
 }

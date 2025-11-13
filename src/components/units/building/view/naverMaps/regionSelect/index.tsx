@@ -88,7 +88,7 @@ function RegionSelect({ setRegionName, setRegionCode }: IRegionSelectProps): JSX
   return (
     <S.Container>
       <FormControl fullWidth>
-        <Select labelId="city-select-label" id="city-select" value={city} label="시" onChange={handleCityChange} MenuProps={menuProps}>
+        <Select labelId="city-select-label" id="city-select" value={city} onChange={handleCityChange} MenuProps={menuProps}>
           <MenuItem value="" disabled>
             <em>시</em>
           </MenuItem>
@@ -100,7 +100,7 @@ function RegionSelect({ setRegionName, setRegionCode }: IRegionSelectProps): JSX
         </Select>
       </FormControl>
       <FormControl fullWidth>
-        <Select labelId="district-select-label" id="district-select" value={district} label="구" onChange={handleDistrictChange} disabled={city === ""} MenuProps={menuProps}>
+        <Select labelId="district-select-label" id="district-select" value={district} onChange={handleDistrictChange} disabled={city === ""} MenuProps={menuProps}>
           <MenuItem value="" disabled>
             <em>구</em>
           </MenuItem>

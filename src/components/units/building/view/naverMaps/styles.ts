@@ -17,14 +17,18 @@ export const Container = styled.div`
     width: 100%;
     height: 100%;
   }
-  .menuContainer {
+  .topContainer {
     display: flex;
     justify-content: space-between;
     gap: 0.5rem;
     width: 100%;
     padding: 0.5rem 1rem;
-    height: 3rem;
     border-bottom: 0.125rem solid #bcbcbc;
+
+    .menu {
+      display: flex;
+      gap: 1rem;
+    }
   }
   .loadingSpinner {
     position: absolute;

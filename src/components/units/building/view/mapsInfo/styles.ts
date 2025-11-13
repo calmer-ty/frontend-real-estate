@@ -24,11 +24,15 @@ export const Container = styled.aside<{ scroll: boolean }>`
 
 export const ListItem = styled.ul`
   height: 100%;
+  h2 {
+    padding: 0.625rem 1rem;
+    font-weight: bold;
+    font-size: 1.25rem;
+  }
   > li {
     padding: 0.625rem 1rem;
     border-bottom: 1px solid ${colors.outline};
     cursor: pointer;
-
     h3 {
       font-weight: bold;
       font-size: 1rem;

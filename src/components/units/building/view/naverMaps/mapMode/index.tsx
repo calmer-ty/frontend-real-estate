@@ -94,16 +94,12 @@ export default function MapMode({ mapMode, setMapMode, asset, setAsset }: IMapMo
               <UnderlineTitle label="현금 자산" />
               <InputUnit label="원화 / 달러 / 금" type="number" register={register("cash", { valueAsNumber: true })} unitLabel="만원" />
               <InputUnit label="월 저축 금액" type="number" register={register("monthlySavings", { valueAsNumber: true })} unitLabel="만원" />
-              {/* <FormattedInputs label="원화 / 달러 / 금" name="cash" register={register("cash")} control={control} />
-              <FormattedInputs label="월 저축 금액" name="monthlySavings" register={register("monthlySavings")} control={control} /> */}
             </section>
             <section>
               <UnderlineTitle label="투자 자산" />
               <InputUnit label="주식 / ETF / 채권" type="number" register={register("investmentAssets", { valueAsNumber: true })} unitLabel="만원" />
               <InputUnit label="예상 연간 상승률" type="number" register={register("investmentAssetsGrowthRate")} unitLabel="%" />
               <InputUnit label="월 투자 금액" type="number" register={register("monthlyInvestment", { valueAsNumber: true })} unitLabel="만원" />
-              {/* <FormattedInputs label="주식 / ETF / 채권" name="investmentAssets" register={register("investmentAssets")} control={control} /> */}
-              {/* <FormattedInputs label="월 투자 금액" name="monthlyInvestment" register={register("monthlyInvestment")} control={control} /> */}
             </section>
 
             <section>

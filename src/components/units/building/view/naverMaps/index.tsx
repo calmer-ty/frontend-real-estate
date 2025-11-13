@@ -2,48 +2,15 @@ import { useCallback, useRef } from "react";
 import { useMapsLoader } from "@/src/commons/hooks/useMapsLoader";
 import { loadScript } from "@/src/commons/libraries/utils/mapsInit";
 
+import LoadingSpinner from "@/src/components/commons/loadingSpinner";
 import RegionSelect from "./regionSelect";
 import MapMode from "./mapMode";
-import LoadingSpinner from "@/src/components/commons/loadingSpinner";
+import MapSelector from "./mapSelector";
 
 import * as S from "./styles";
 import "./marker.css";
-import type { Dispatch, SetStateAction } from "react";
-import type { IAssetForm, IFirestore, IGeocode, IGeocodeData } from "@/src/commons/types";
-interface INaverMapsProps {
-  geocode: IGeocode | undefined;
-  allGeocodeData: IGeocodeData[];
-  allGeocodeDataLoading: boolean;
-  matchingData: IFirestore[];
-  setSelectedMarkerData: Dispatch<SetStateAction<IGeocodeData | undefined>>;
-  setVisibleMarkerData: Dispatch<SetStateAction<IGeocodeData[]>>;
-  setRegionName: Dispatch<SetStateAction<string | undefined>>;
-  setRegionCode: Dispatch<SetStateAction<string | undefined>>;
-  mapMode: boolean;
-  setMapMode: Dispatch<SetStateAction<boolean>>;
-  asset: IAssetForm | undefined;
-  setAsset: Dispatch<SetStateAction<IAssetForm | undefined>>;
-}
-
-interface IMarkerIconContentParams {
-  geocodeData: IGeocodeData;
-  matchingData: IFirestore[];
-  mapMode: boolean;
-  totalAsset: number;
-}
-
-interface ICreateMarkerParams {
-  geocodeData: IGeocodeData;
-  matchingData: IFirestore[];
-  setSelectedMarkerData: (data: IGeocodeData) => void;
-  mapMode: boolean;
-  totalAsset: number;
-}
-interface IClusterIcon {
-  content: string;
-  size: any;
-  anchor: any;
-}
+import type { IGeocodeData } from "@/src/commons/types";
+import type { IClusterIcon, ICreateMarkerParams, IMarkerIconContentParams, INaverMapsProps } from "./types";
 
 const markerIconContent = ({ geocodeData, matchingData, mapMode, totalAsset }: IMarkerIconContentParams): string => {
   const isMatched = matchingData.some((matchingData) => matchingData.address === geocodeData.geocode.jibunAddress || matchingData.address === geocodeData.geocode.roadAddress);
@@ -130,6 +97,7 @@ export default function NaverMaps({
   setMapMode,
   asset,
   setAsset,
+  buildingType,
   geocode,
   allGeocodeData,
   matchingData,
@@ -224,8 +192,13 @@ export default function NaverMaps({
         <LoadingSpinner />
       ) : (
         <>
-          <div className="menuContainer">
-            {!mapLoading && <RegionSelect setRegionName={setRegionName} setRegionCode={setRegionCode} />}
+          <div className="topContainer">
+            {!mapLoading && (
+              <div className="menu">
+                <MapSelector buildingType={buildingType} />
+                <RegionSelect setRegionName={setRegionName} setRegionCode={setRegionCode} />
+              </div>
+            )}
             <MapMode mapMode={mapMode} setMapMode={setMapMode} asset={asset} setAsset={setAsset} />
           </div>
           <div id="map"></div>
