@@ -7,6 +7,6 @@ export const Container = styled.section`
   height: calc(100vh - 3.75rem);
 
   ${mediaQueries.tablet(css`
-    flex-direction: column;
+    flex-direction: column-reverse;
   `)}
 `;

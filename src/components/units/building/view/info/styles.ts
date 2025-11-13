@@ -21,35 +21,6 @@ export const Container = styled.aside<{ scroll: boolean }>`
     `)}
 `;
 
-export const List = styled.div`
-  height: 100%;
-  /* padding-bottom: 0.5rem; */
-  h2 {
-    padding: 0.5rem 1rem;
-    background-color: #fff;
-    font-weight: bold;
-    font-size: 1rem;
-  }
-
-  li {
-    padding: 0.5rem 1rem;
-    /* margin: 0.5rem 1rem 0.5rem; */
-    border-bottom: 1px solid ${colors.outline};
-    /* border-radius: 0.5rem;
-    background-color: #fff; */
-    cursor: pointer;
-
-    h3 {
-      font-weight: bold;
-      font-size: 1rem;
-    }
-
-    &:hover {
-      background-color: ${colors.hover};
-    }
-  }
-`;
-
 export const TabButton = styled(Button)`
   display: none;
   position: relative;
@@ -70,4 +41,30 @@ export const TabButton = styled(Button)`
     border-top: 1px solid ${colors.outline};
     background-color: #fff;
   `)}
+`;
+
+export const BuildingList = styled.div`
+  height: 100%;
+
+  h2 {
+    padding: 0.5rem 1rem;
+    background-color: #fff;
+    font-weight: bold;
+    font-size: 1rem;
+  }
+
+  li {
+    padding: 0.5rem 1rem;
+    border-bottom: 1px solid ${colors.outline};
+    cursor: pointer;
+
+    h3 {
+      font-weight: bold;
+      font-size: 1rem;
+    }
+
+    &:hover {
+      background-color: ${colors.hover};
+    }
+  }
 `;

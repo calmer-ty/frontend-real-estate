@@ -36,7 +36,7 @@ export default function VisibleBuilding({ visibleMarkerData, matchingData, selec
             // 마커 리스트 아이템을 선택할 때 보이는 건물 정보
             <InfoDetails matchingData={matchingData} selectedData={selectedData} buildingType={buildingType} setSelectedData={setSelectedData} mapMode={mapMode} />
           ) : (
-            <S.List>
+            <S.BuildingList>
               <Chip label="매물 목록" size="medium" variant="filled" color="primary" style={{ margin: "1rem 1rem 0.5rem" }} />
               <ul>
                 {matchingMarkerData.map((visData, index) => {
@@ -65,7 +65,7 @@ export default function VisibleBuilding({ visibleMarkerData, matchingData, selec
                   );
                 })}
               </ul>
-            </S.List>
+            </S.BuildingList>
           )}
         </>
       ) : (
