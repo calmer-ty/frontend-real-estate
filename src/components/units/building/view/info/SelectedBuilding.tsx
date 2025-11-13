@@ -1,4 +1,4 @@
-import BuildingInfo from "./buildingInfo";
+import InfoDetails from "./details";
 import BuyCheck from "./buyCheck";
 
 import type { Dispatch, SetStateAction } from "react";
@@ -15,7 +15,7 @@ interface ISelectedBuildingProps {
 export default function SelectedBuilding({ selectedMarkerData, setSelectedMarkerData, asset, ...restProps }: ISelectedBuildingProps): JSX.Element {
   return (
     <>
-      <BuildingInfo selectedData={selectedMarkerData} setSelectedData={setSelectedMarkerData} {...restProps} />
+      <InfoDetails selectedData={selectedMarkerData} setSelectedData={setSelectedMarkerData} {...restProps} />
       {restProps.mapMode && <BuyCheck selectedData={selectedMarkerData} asset={asset} />}
     </>
   );

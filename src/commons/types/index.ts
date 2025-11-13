@@ -224,7 +224,7 @@ export interface IWriteForm {
 export interface IBuildingsParams {
   buildingType: string;
 }
-export interface IBuildingParamsPromiseProps {
+export interface IBuildingPromiseParams {
   params: Promise<IBuildingsParams>;
 }
 

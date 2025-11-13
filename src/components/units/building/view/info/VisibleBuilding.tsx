@@ -1,5 +1,6 @@
-import BuildingInfo from "./buildingInfo";
+import InfoDetails from "./details";
 import NoDataMessage from "@/src/components/commons/noDataMessage";
+import { Chip } from "@mui/material";
 
 import { formatPrice } from "@/src/commons/libraries/utils/priceFormatter";
 
@@ -33,36 +34,38 @@ export default function VisibleBuilding({ visibleMarkerData, matchingData, selec
         <>
           {selectedData !== undefined ? (
             // 마커 리스트 아이템을 선택할 때 보이는 건물 정보
-            <BuildingInfo matchingData={matchingData} selectedData={selectedData} buildingType={buildingType} setSelectedData={setSelectedData} mapMode={mapMode} />
+            <InfoDetails matchingData={matchingData} selectedData={selectedData} buildingType={buildingType} setSelectedData={setSelectedData} mapMode={mapMode} />
           ) : (
-            <S.ListItem>
-              <h2>매물 목록</h2>
-              {matchingMarkerData.map((visData, index) => {
-                const name =
-                  visData.data?.aptNm?.trim() !== ""
-                    ? visData.data.aptNm
-                    : visData.data?.offiNm?.trim() !== ""
-                    ? visData.data.offiNm
-                    : visData.data?.mhouseNm?.trim() !== ""
-                    ? visData.data.mhouseNm
-                    : "";
-                return (
-                  <li
-                    key={`${visData.data?.aptNm}_${index}`}
-                    onClick={() => {
-                      onClickInfo(visData);
-                    }}
-                  >
-                    <h3>매매 {formatPrice(Number(visData.data?.dealAmount))}</h3>
-                    <p>
-                      {name}
-                      <br />
-                      {visData.data?.excluUseAr}m² {visData.data?.floor}층
-                    </p>
-                  </li>
-                );
-              })}
-            </S.ListItem>
+            <S.List>
+              <Chip label="매물 목록" size="medium" variant="filled" color="primary" style={{ margin: "1rem 1rem 0.5rem" }} />
+              <ul>
+                {matchingMarkerData.map((visData, index) => {
+                  const name =
+                    visData.data?.aptNm?.trim() !== ""
+                      ? visData.data.aptNm
+                      : visData.data?.offiNm?.trim() !== ""
+                      ? visData.data.offiNm
+                      : visData.data?.mhouseNm?.trim() !== ""
+                      ? visData.data.mhouseNm
+                      : "";
+                  return (
+                    <li
+                      key={`${visData.data?.aptNm}_${index}`}
+                      onClick={() => {
+                        onClickInfo(visData);
+                      }}
+                    >
+                      <h3>매매 {formatPrice(Number(visData.data?.dealAmount))}</h3>
+                      <p>
+                        {name}
+                        <br />
+                        {visData.data?.excluUseAr}m² {visData.data?.floor}층
+                      </p>
+                    </li>
+                  );
+                })}
+              </ul>
+            </S.List>
           )}
         </>
       ) : (

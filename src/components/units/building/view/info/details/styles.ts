@@ -5,7 +5,7 @@ import { colors } from "@/src/commons/styles";
 
 // 클릭 된 건물 상세 정보
 
-export const Basic = styled.section`
+export const Container = styled.section`
   position: relative;
   display: flex;
   flex-direction: column;
@@ -13,7 +13,7 @@ export const Basic = styled.section`
   padding: 0.875rem;
 
   h2 {
-    font-size: 1.5rem;
+    font-size: 1.25rem;
     font-weight: bold;
     margin-right: 1.25rem;
   }
@@ -22,7 +22,6 @@ export const InfoWrap = styled.div`
   display: flex;
   flex-direction: column;
   row-gap: 0.625rem;
-
   h3 {
     font-size: 1rem;
     font-weight: bold;
@@ -54,20 +53,20 @@ export const CloseButton = styled(Button)`
   cursor: pointer;
 `;
 
-// Listing
-export const Listing = styled.section`
+// DetailsList
+export const DetailsList = styled.section`
   display: flex;
   flex-direction: column;
   border-top: 0.0625rem solid ${colors.outline};
-  flex: 1;
 
+  flex: 1;
   .topMenu {
     display: flex;
     flex-direction: column;
     row-gap: 0.625rem;
     padding: 0.875rem 0.875rem 0;
     h3 {
-      > strong {
+      strong {
         color: #1976d2;
       }
     }
@@ -87,7 +86,7 @@ export const MatchedList = styled.ul`
   li {
     border-bottom: 0.0625rem solid ${colors.outline};
 
-    > a {
+    a {
       display: flex;
       column-gap: 1.25rem;
       padding: 1.25rem;

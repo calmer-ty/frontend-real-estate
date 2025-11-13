@@ -1,7 +1,7 @@
-import InfoListing from "./InfoListing";
+import DetailsList from "./List";
 
-import BasicChip from "@/src/components/commons/chip/basic";
 import CloseButton from "@/src/components/commons/button/close";
+import { Chip } from "@mui/material";
 
 import { formatPrice } from "@/src/commons/libraries/utils/priceFormatter";
 
@@ -10,7 +10,7 @@ import * as S from "./styles";
 import type { Dispatch, SetStateAction } from "react";
 import type { IFirestore, IGeocodeData } from "@/src/commons/types";
 import { DEFAULT_STRING_VALUE } from "@/src/commons/constants";
-interface IBuildingInfoProps {
+interface IInfoDetailsProps {
   selectedData: IGeocodeData;
   setSelectedData: Dispatch<SetStateAction<IGeocodeData | undefined>>;
   matchingData: IFirestore[];
@@ -18,7 +18,7 @@ interface IBuildingInfoProps {
   mapMode: boolean;
 }
 
-export default function BuildingInfo({ selectedData, setSelectedData, matchingData, buildingType, mapMode }: IBuildingInfoProps): JSX.Element {
+export default function InfoDetails({ selectedData, setSelectedData, matchingData, buildingType, mapMode }: IInfoDetailsProps): JSX.Element {
   const onClickClose = (): void => {
     setSelectedData(undefined);
   };
@@ -36,18 +36,21 @@ export default function BuildingInfo({ selectedData, setSelectedData, matchingDa
     <>
       {selectedData != null && (
         <>
-          <S.Basic>
+          <S.Container>
             <CloseButton onClickClose={onClickClose} />
             <S.InfoWrap>
               <h2>{buildingName}</h2>
               <S.TextWrap>
-                <BasicChip label="연식" size="medium" /> <span>{selectedData.data?.buildYear}</span>
+                <Chip label="연식" size="medium" variant="outlined" />
+                <span>{selectedData.data?.buildYear}</span>
               </S.TextWrap>
               <S.TextWrap>
-                <BasicChip label="지번" size="medium" /> <span>{selectedData.geocode?.jibunAddress}</span>
+                <Chip label="지번" size="medium" variant="outlined" />
+                <span>{selectedData.geocode?.jibunAddress}</span>
               </S.TextWrap>
               <S.TextWrap>
-                <BasicChip label="도로명" size="medium" /> <span>{selectedData.geocode?.roadAddress}</span>
+                <Chip label="도로명" size="medium" variant="outlined" />
+                <span>{selectedData.geocode?.roadAddress}</span>
               </S.TextWrap>
             </S.InfoWrap>
 
@@ -60,9 +63,9 @@ export default function BuildingInfo({ selectedData, setSelectedData, matchingDa
                 </p>
               </S.SelectedContent>
             </S.InfoWrap>
-          </S.Basic>
+          </S.Container>
 
-          {!mapMode && <InfoListing selectedData={selectedData} matchingData={matchingData} />}
+          {!mapMode && <DetailsList selectedData={selectedData} matchingData={matchingData} />}
         </>
       )}
     </>

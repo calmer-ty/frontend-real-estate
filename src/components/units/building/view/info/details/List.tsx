@@ -13,12 +13,12 @@ import * as S from "./styles";
 
 import { BUILDING_TYPE } from "@/src/commons/constants";
 import type { IFirestore, IGeocodeData } from "@/src/commons/types";
-interface IInfoListingProps {
+interface IDetailsListProps {
   selectedData: IGeocodeData;
   matchingData: IFirestore[];
 }
 
-export default function InfoListing({ selectedData, matchingData }: IInfoListingProps): JSX.Element {
+export default function DetailsList({ selectedData, matchingData }: IDetailsListProps): JSX.Element {
   // 토글 로직 빼옴
   const [alignment, setAlignment] = useState<string | null>("월세");
   const handleAlignment = (event: React.MouseEvent<HTMLElement>, newAlignment: string | null): void => {
@@ -29,7 +29,7 @@ export default function InfoListing({ selectedData, matchingData }: IInfoListing
   const filteredMatchingData = matchingData.filter((matchingData) => selectedData.geocode?.jibunAddress === matchingData.address || selectedData.geocode?.roadAddress === matchingData.address);
 
   return (
-    <S.Listing>
+    <S.DetailsList>
       <div className="topMenu">
         <h3>
           총 <strong>{filteredMatchingData.length}</strong>개의 매물이 있습니다
@@ -78,47 +78,6 @@ export default function InfoListing({ selectedData, matchingData }: IInfoListing
           </NoDataMessage>
         )}
       </div>
-    </S.Listing>
+    </S.DetailsList>
   );
 }
-
-// function MatchedList({ matchingData, alignment }: IMatchedListProps): JSX.Element {
-//   // alignment 값이 있을 경우 transactionType이 alignment와 일치하는 항목만 필터링
-//   const filteredMatchingData = alignment !== null ? matchingData.filter((el) => el.transactionType === alignment) : matchingData;
-
-//   return (
-//     <>
-//       {filteredMatchingData.length !== 0 ? (
-//         <S.MatchedList>
-//           {filteredMatchingData.map((el, index) => (
-//             <li key={`${el.buildingType}_${el.address}_${index}`}>
-//               <Link href={`/${korToEng(el.buildingType)}/${el._id}`}>
-//                 <figure>
-//                   {el.imageUrls?.[0] !== undefined ? (
-//                     <Image src={el.imageUrls?.[0]} alt={el._id} fill sizes="100%" style={{ objectFit: "cover" }} unoptimized />
-//                   ) : (
-//                     <BasicUnImage className="w-full h-full text-[2rem]" />
-//                   )}
-//                 </figure>
-//                 <div className="buildingInfo">
-//                   <strong>{getTransactionText(el.transactionType, el.price, el.rent)}</strong>
-//                   <span>
-//                     {el.buildingType}・{el.addressDetail}
-//                   </span>
-//                   <span>
-//                     {el.floor}층, {el.area}m², 관리비 {formatPrice(el.manageCost)}
-//                   </span>
-//                 </div>
-//               </Link>
-//             </li>
-//           ))}
-//         </S.MatchedList>
-//       ) : (
-//         <NoDataMessage>
-//           <p>거래 가능한 매물이 없습니다.</p>
-//           <p>조건을 다시 설정해주세요.</p>
-//         </NoDataMessage>
-//       )}
-//     </>
-//   );
-// }

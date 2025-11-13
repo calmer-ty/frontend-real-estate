@@ -9,7 +9,6 @@ export const Container = styled.aside<{ scroll: boolean }>`
   display: flex;
   flex-direction: column;
   border-right: 0.0625rem solid ${colors.outline};
-  background-color: #fff;
   flex: 1;
 
   position: relative;
@@ -22,17 +21,24 @@ export const Container = styled.aside<{ scroll: boolean }>`
     `)}
 `;
 
-export const ListItem = styled.ul`
+export const List = styled.div`
   height: 100%;
+  /* padding-bottom: 0.5rem; */
   h2 {
-    padding: 0.625rem 1rem;
+    padding: 0.5rem 1rem;
+    background-color: #fff;
     font-weight: bold;
-    font-size: 1.25rem;
+    font-size: 1rem;
   }
-  > li {
-    padding: 0.625rem 1rem;
+
+  li {
+    padding: 0.5rem 1rem;
+    /* margin: 0.5rem 1rem 0.5rem; */
     border-bottom: 1px solid ${colors.outline};
+    /* border-radius: 0.5rem;
+    background-color: #fff; */
     cursor: pointer;
+
     h3 {
       font-weight: bold;
       font-size: 1rem;

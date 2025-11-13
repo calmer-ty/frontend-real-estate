@@ -8,7 +8,7 @@ import * as S from "./styles";
 import type { Dispatch, SetStateAction } from "react";
 import type { IAssetForm, IFirestore, IGeocodeData } from "@/src/commons/types";
 
-interface IMapsInfoProps {
+interface IViewInfoProps {
   selectedMarkerData: IGeocodeData | undefined;
   visibleMarkerData: IGeocodeData[];
   setSelectedMarkerData: Dispatch<SetStateAction<IGeocodeData | undefined>>;
@@ -18,7 +18,7 @@ interface IMapsInfoProps {
   asset: IAssetForm | undefined;
 }
 
-export default function MapsInfo({ selectedMarkerData, setSelectedMarkerData, visibleMarkerData, asset, ...restProps }: IMapsInfoProps): JSX.Element {
+export default function ViewInfo({ selectedMarkerData, setSelectedMarkerData, visibleMarkerData, asset, ...restProps }: IViewInfoProps): JSX.Element {
   const [scroll, setScroll] = useState(false);
   const [selectedData, setSelectedData] = useState<IGeocodeData | undefined>(undefined);
 

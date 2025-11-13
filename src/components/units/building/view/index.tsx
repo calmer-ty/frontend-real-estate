@@ -7,13 +7,13 @@ import { engToKor } from "@/src/commons/libraries/utils/convertCollection";
 
 import LoadingSpinner from "@/src/components/commons/loadingSpinner";
 import NaverMaps from "./naverMaps";
-import MapsInfo from "./mapsInfo";
+import ViewInfo from "./info";
 
 import * as S from "./styles";
 import { DEFAULT_STRING_VALUE } from "@/src/commons/constants";
-import type { IAssetForm, IBuildingItem, IBuildingParamsPromiseProps, IFirestore, IGeocode, IGeocodeData } from "@/src/commons/types";
+import type { IAssetForm, IBuildingItem, IBuildingPromiseParams, IFirestore, IGeocode, IGeocodeData } from "@/src/commons/types";
 
-export default function BuildingView({ params }: IBuildingParamsPromiseProps): JSX.Element {
+export default function BuildingView({ params }: IBuildingPromiseParams): JSX.Element {
   const [buildingType, setBuildingType] = useState<string | undefined>(undefined);
 
   const [selectedMarkerData, setSelectedMarkerData] = useState<IGeocodeData | undefined>(undefined);
@@ -174,7 +174,7 @@ export default function BuildingView({ params }: IBuildingParamsPromiseProps): J
 
   return (
     <S.Container>
-      <MapsInfo {...mapProps} selectedMarkerData={selectedMarkerData} visibleMarkerData={visibleMarkerData} buildingType={buildingType} />
+      <ViewInfo {...mapProps} selectedMarkerData={selectedMarkerData} visibleMarkerData={visibleMarkerData} buildingType={buildingType} />
       <NaverMaps
         {...mapProps}
         buildingType={buildingType}

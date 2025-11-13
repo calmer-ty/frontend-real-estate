@@ -1,7 +1,7 @@
 import BuildingView from "@/src/components/units/building/view";
 
-import type { IBuildingParamsPromiseProps } from "@/src/commons/types";
+import type { IBuildingPromiseParams } from "@/src/commons/types";
 
-export default function BuildingsPage({ params }: IBuildingParamsPromiseProps): JSX.Element {
+export default function BuildingsPage({ params }: IBuildingPromiseParams): JSX.Element {
   return <BuildingView params={params} />;
 }
