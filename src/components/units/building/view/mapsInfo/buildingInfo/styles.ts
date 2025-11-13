@@ -101,6 +101,7 @@ export const MatchedList = styled.ul`
         &::after {
           content: "";
           position: absolute;
+          top: 0;
           width: 100%;
           height: 100%;
           transition: background-color 100ms ease-in-out;

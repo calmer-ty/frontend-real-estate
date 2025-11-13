@@ -1,5 +1,5 @@
-import BuildingInfo from "./ui/buildingInfo";
-import BuyCheck from "./ui/buyCheck";
+import BuildingInfo from "./buildingInfo";
+import BuyCheck from "./buyCheck";
 
 import type { Dispatch, SetStateAction } from "react";
 import type { IAssetForm, IFirestore, IGeocodeData } from "@/src/commons/types";

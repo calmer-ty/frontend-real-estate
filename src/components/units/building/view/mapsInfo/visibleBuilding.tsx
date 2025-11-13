@@ -1,4 +1,4 @@
-import BuildingInfo from "./ui/buildingInfo";
+import BuildingInfo from "./buildingInfo";
 import NoDataMessage from "@/src/components/commons/noDataMessage";
 
 import { formatPrice } from "@/src/commons/libraries/utils/priceFormatter";

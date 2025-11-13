@@ -2,8 +2,8 @@ import { useCallback, useRef } from "react";
 import { useMapsLoader } from "@/src/commons/hooks/useMapsLoader";
 import { loadScript } from "@/src/commons/libraries/utils/mapsInit";
 
-import RegionSelect from "./ui/regionSelect";
-import MapMode from "./ui/mapMode";
+import RegionSelect from "./regionSelect";
+import MapMode from "./mapMode";
 import LoadingSpinner from "@/src/components/commons/loadingSpinner";
 
 import * as S from "./styles";
