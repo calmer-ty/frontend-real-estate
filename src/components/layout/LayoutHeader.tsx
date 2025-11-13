@@ -1,6 +1,6 @@
 import Link from "next/link";
 
-import Nav from "./nav";
+import LayoutNav from "./LayoutNav";
 import LocationCityIcon from "@mui/icons-material/LocationCity";
 
 import * as S from "./styles";
@@ -14,7 +14,7 @@ export default function Header(): JSX.Element {
             <LocationCityIcon color="primary" fontSize="large" />
           </Link>
         </h1>
-        <Nav />
+        <LayoutNav />
       </S.Header>
       <div className="min-h-[3.75rem]" />
     </>

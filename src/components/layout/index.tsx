@@ -1,4 +1,4 @@
-import Header from "./header";
+import LayoutHeader from "./LayoutHeader";
 
 interface ILayoutProps {
   children: React.ReactNode;
@@ -7,7 +7,7 @@ interface ILayoutProps {
 export default function Layout({ children }: ILayoutProps): JSX.Element {
   return (
     <>
-      <Header />
+      <LayoutHeader />
       <main>{children}</main>
     </>
   );
