@@ -5,7 +5,7 @@ import { setGlobalOptions } from "firebase-functions/v2";
 
 // 글로벌 리전 설정
 setGlobalOptions({
-  region: "asia-northeast1", // 한국 리전 설정
+  region: "asia-northeast3", // 한국 리전 설정
 });
 
 // Firebase Admin 초기화
